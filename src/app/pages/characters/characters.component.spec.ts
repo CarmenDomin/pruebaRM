@@ -8,7 +8,7 @@ import {CharactersService} from '../../services/characters.service';
 
 describe('CharactersComponent', () => {
   let fixture: ComponentFixture<CharactersComponent>;
-  const mockCharactersService = jasmine.createSpyObj(['getAllCharacters']);
+  const mockCharactersService = jasmine.createSpyObj(['getAllCharacters', 'getCharactersByName']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -26,6 +26,7 @@ describe('CharactersComponent', () => {
 
     fixture = TestBed.createComponent(CharactersComponent);
     mockCharactersService.getAllCharacters.and.returnValue(of([]));
+    mockCharactersService.getCharactersByName.and.returnValue(of([{id: 4}]));
     fixture.detectChanges();
   }));
 
@@ -35,5 +36,20 @@ describe('CharactersComponent', () => {
   it('should get data from characters service', async(() => {
     expect(mockCharactersService.getAllCharacters).toHaveBeenCalled();
     expect(fixture.debugElement.componentInstance.characters).toEqual([]);
+  }));
+  it('should filter characters by name', async(() => {
+    fixture.debugElement.componentInstance.filter('rick');
+
+    expect(mockCharactersService.getCharactersByName).toHaveBeenCalledWith('rick');
+    expect(fixture.debugElement.componentInstance.characters).toEqual([{id: 4}]);
+    expect(fixture.debugElement.componentInstance.showNotFound).not.toBeTruthy;
+  }));
+  it('should show not found message', async(() => {
+    mockCharactersService.getCharactersByName.and.returnValue(of([]));
+    fixture.debugElement.componentInstance.filter('ifkhygi');
+
+    expect(mockCharactersService.getCharactersByName).toHaveBeenCalledWith('ifkhygi');
+    expect(fixture.debugElement.componentInstance.characters).toEqual([]);
+    expect(fixture.debugElement.componentInstance.showNotFound).toBeTruthy;
   }));
 });

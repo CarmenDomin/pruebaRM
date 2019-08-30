@@ -10,14 +10,19 @@ import {Character} from '../../models/character.model';
 })
 export class CharactersComponent implements OnInit {
   public characters: Character[];
+  public showNotFound = false;
 
   constructor(public charactersService: CharactersService) {
   }
 
   public ngOnInit(): void {
-    this.charactersService.getAllCharacters().subscribe((data) => {
+    this.charactersService.getAllCharacters().subscribe((data) => this.characters = data);
+  }
+
+  public filter(input: string) {
+    this.charactersService.getCharactersByName(input).subscribe((data) => {
       this.characters = data;
-      console.log(data);
+      this.showNotFound = (this.characters.length < 1);
     });
   }
 }

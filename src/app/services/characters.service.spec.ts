@@ -25,4 +25,9 @@ describe('CharactersService', () => {
       expect(data.id).toBe(1);
     });
   }));
+  it('should get characters by name', inject([CharactersService], (service: CharactersService) => {
+    service.getCharactersByName('rick').subscribe((data) => {
+      data.forEach((item) => expect(item.name).toContain('rick'));
+    });
+  }));
 });
