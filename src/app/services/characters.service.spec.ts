@@ -1,5 +1,5 @@
 import {HttpClientModule} from '@angular/common/http'; 
-import {TestBed, async} from '@angular/core/testing';
+import {async, inject, TestBed} from '@angular/core/testing';
 
 import {CharactersService} from './characters.service';
 
@@ -12,8 +12,17 @@ describe('CharactersService', () => {
     }).compileComponents();
   }));
 
-  it('should be created', () => {
-    const service: CharactersService = TestBed.get(CharactersService);
+  it('should be created', inject([CharactersService], (service: CharactersService) => {
     expect(service).toBeTruthy();
-  });
+  }));
+  it('should get first 20 characters', inject([CharactersService], (service: CharactersService) => {
+    service.getAllCharacters().subscribe((data) => {
+      expect(data.length).toBe(20);
+    });
+  }));
+  it('should get the first character', inject([CharactersService], (service: CharactersService) => {
+    service.getCharacterDetail(1).subscribe((data) => {
+      expect(data.id).toBe(1);
+    });
+  }));
 });
