@@ -2,16 +2,16 @@ import {APP_BASE_HREF} from '@angular/common';
 import {TestBed, async} from '@angular/core/testing';
 import {RouterModule} from '@angular/router';
 
-import {AppComponent} from './app.component';
+import {CharactersComponent} from './characters.component';
 
-describe('AppComponent', () => {
+describe('CharactersComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        CharactersComponent
       ],
       imports: [
-        RouterModule.forRoot([])
+        RouterModule.forRoot([]),
       ],
       providers: [
         {provide: APP_BASE_HREF, useValue : '/' }
@@ -19,7 +19,7 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
   it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CharactersComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
