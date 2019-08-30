@@ -1,4 +1,5 @@
 import {APP_BASE_HREF} from '@angular/common';
+import {HttpClientModule} from '@angular/common/http'; 
 import {TestBed, async} from '@angular/core/testing';
 import {RouterModule} from '@angular/router';
 
@@ -11,6 +12,7 @@ describe('CharactersComponent', () => {
         CharactersComponent
       ],
       imports: [
+        HttpClientModule,
         RouterModule.forRoot([]),
       ],
       providers: [

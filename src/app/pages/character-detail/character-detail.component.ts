@@ -1,15 +1,29 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
+import {CharactersService} from '../../services/characters.service';
+import {Character} from '../../models/character.model';
+
 @Component({
   selector: 'character-detail',
   templateUrl: './character-detail.component.html',
   styleUrls: ['./character-detail.component.css']
 })
 export class CharacterDetailComponent {
-  public id: number;
+  private id: number;
+  public characterDetail: Character;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    public charactersService: CharactersService,
+    private route: ActivatedRoute
+  ) {
     this.id = this.route.snapshot.params.id;
+  }
+
+  public ngOnInit(): void {
+    this.charactersService.getCharacterDetail(this.id).subscribe((data) => {
+      this.characterDetail = data;
+      console.log(data);
+    });
   }
 }
