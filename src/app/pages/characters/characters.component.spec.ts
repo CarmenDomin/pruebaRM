@@ -4,6 +4,7 @@ import {RouterModule} from '@angular/router';
 import {of} from 'rxjs';
 
 import {CharactersComponent} from './characters.component';
+import {LayoutComponent} from '../../components/layout/layout.component';
 import {CharactersService} from '../../services/characters.service';
 
 describe('CharactersComponent', () => {
@@ -13,7 +14,8 @@ describe('CharactersComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        CharactersComponent
+        CharactersComponent,
+        LayoutComponent
       ],
       imports: [
         RouterModule.forRoot([]),

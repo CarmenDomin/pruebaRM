@@ -4,6 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
+import {LayoutComponent} from './components/layout/layout.component';
 import {CharactersComponent} from './pages/characters/characters.component';
 import {CharacterDetailComponent} from './pages/character-detail/character-detail.component';
 
@@ -26,7 +27,8 @@ const Routes = [
   declarations: [
     AppComponent,
     CharactersComponent,
-    CharacterDetailComponent
+    CharacterDetailComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

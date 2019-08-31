@@ -1,0 +1,25 @@
+$blue: rgb(115, 185, 205);
+$green: rgb(210, 227, 111);
+
+:host {
+  border-top: 1px solid rgb(227, 227, 227);
+  display: block;
+  padding: 20px 60px;
+}
+
+.header {
+  animation: 1s border-animation infinite linear;
+  border-bottom: 1px solid $blue;
+}
+
+@keyframes border-animation {
+  0% {
+    border-color: $blue;
+  }
+  50% {
+    border-color:  $green;
+  }
+  100% {
+    border-color:  $blue;
+  }
+}

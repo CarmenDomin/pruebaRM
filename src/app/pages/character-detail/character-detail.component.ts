@@ -7,7 +7,7 @@ import {Character} from '../../models/character.model';
 @Component({
   selector: 'character-detail',
   templateUrl: './character-detail.component.html',
-  styleUrls: ['./character-detail.component.css']
+  styleUrls: ['./character-detail.component.scss']
 })
 export class CharacterDetailComponent {
   private id: number;

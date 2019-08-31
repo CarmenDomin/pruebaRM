@@ -4,6 +4,7 @@ import {ActivatedRoute, RouterModule} from '@angular/router';
 import {of} from 'rxjs';
 
 import {CharacterDetailComponent} from './character-detail.component';
+import {LayoutComponent} from '../../components/layout/layout.component';
 import {CharactersService} from '../../services/characters.service';
 
 const mockCharacter = {
@@ -37,7 +38,8 @@ describe('CharactersDetailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        CharacterDetailComponent
+        CharacterDetailComponent,
+        LayoutComponent
       ],
       imports: [
         RouterModule.forRoot([]),

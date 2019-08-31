@@ -6,7 +6,7 @@ import {Character} from '../../models/character.model';
 @Component({
   selector: 'characters',
   templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.css']
+  styleUrls: ['./characters.component.scss']
 })
 export class CharactersComponent implements OnInit {
   public characters: Character[];
