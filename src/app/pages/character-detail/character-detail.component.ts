@@ -21,9 +21,6 @@ export class CharacterDetailComponent {
   }
 
   public ngOnInit(): void {
-    this.charactersService.getCharacterDetail(this.id).subscribe((data) => {
-      this.characterDetail = data;
-      console.log(data);
-    });
+    this.charactersService.getCharacterDetail(this.id).subscribe((data) => this.characterDetail = data);
   }
 }
