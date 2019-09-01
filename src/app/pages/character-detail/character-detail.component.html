@@ -1,16 +1,16 @@
-<layout>
+<layout *ngIf="details">
   <div header>
-    <span class="link" [routerLink]="['/characters']">Characters</span> > {{details?.name}}
+    <span class="link" [routerLink]="['/characters']">Characters</span> > {{details.name}}
   </div>
   <div class="information_wrapper">
-    <img class="image" src="{{details?.image}}" alt="">
+    <img class="image" src="{{details.image}}" alt="">
     <div class="information">
-      <div class="specie" [class.specie--human]="details?.species === 'Human'">{{details?.species}}</div>
-      <h2>{{details?.name}}</h2>
+      <div class="specie" [class.specie--human]="details.species === 'Human'">{{details.species}}</div>
+      <h2>{{details.name}}</h2>
       <ul>
-        <li><span class="bold">Gender:</span> {{details?.gender}}</li>
-        <li><span class="bold">Status:</span> {{details?.status}}</li>
-        <li><span class="bold">Origin:</span> {{details?.origin.name}}</li>
+        <li><span class="bold">Gender:</span> {{details.gender}}</li>
+        <li><span class="bold">Status:</span> {{details.status}}</li>
+        <li><span class="bold">Origin:</span> {{details.origin.name}}</li>
       </ul>
     </div>
   </div>
