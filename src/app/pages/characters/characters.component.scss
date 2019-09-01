@@ -1,3 +1,5 @@
+@import '../../../assets/scss/utils';
+
 .card {
   cursor: pointer;
   flex: 1 1 0%;
@@ -10,9 +12,16 @@
 }
 
 .card_wrapper {
+  @include transition('opacity');
+
   display: flex;
   flex-wrap: wrap;
   margin: 0 -20px;
+  opacity: 1;
+
+  &.card_wrapper--searching {
+    opacity: 0;
+  }
 }
 
 .header {

@@ -11,6 +11,7 @@ import {Character} from '../../models/character.model';
 export class CharactersComponent implements OnInit {
   public characters: Character[];
   public showNotFound = false;
+  public searching = false;
 
   constructor(public charactersService: CharactersService) {
   }
@@ -20,9 +21,11 @@ export class CharactersComponent implements OnInit {
   }
 
   public filter(input: string) {
+    this.searching = true;
     this.charactersService.getCharactersByName(input).subscribe((data) => {
       this.characters = data;
       this.showNotFound = (this.characters.length < 1);
+      this.searching = false;
     });
   }
 }
