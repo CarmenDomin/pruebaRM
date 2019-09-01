@@ -1,0 +1,26 @@
+@import '../../../assets/scss/colors';
+
+.bold {
+  font-weight: bold;
+}
+
+.information_wrapper {
+  display: flex;
+  padding-top: 20px;
+}
+
+.information {
+  margin-left: 30px;
+}
+
+.specie {
+  color: $green;
+  border: 1px solid $green;
+  width: fit-content;
+  padding: 2px 7px;
+}
+
+.specie--human {
+  color: $red;
+  border: 1px solid $red;
+}

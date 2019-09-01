@@ -11,7 +11,7 @@ import {Character} from '../../models/character.model';
 })
 export class CharacterDetailComponent {
   private id: number;
-  public characterDetail: Character;
+  public details: Character;
 
   constructor(
     public charactersService: CharactersService,
@@ -21,6 +21,6 @@ export class CharacterDetailComponent {
   }
 
   public ngOnInit(): void {
-    this.charactersService.getCharacterDetail(this.id).subscribe((data) => this.characterDetail = data);
+    this.charactersService.getCharacterDetail(this.id).subscribe((data) => this.details = data);
   }
 }

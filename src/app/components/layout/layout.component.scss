@@ -9,6 +9,8 @@
 .header {
   animation: 1s border-animation infinite linear;
   border-bottom: 2px solid $blue;
+  height: 80px;
+  line-height: 80px;
   margin-bottom: 20px;
 }
 
