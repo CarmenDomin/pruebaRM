@@ -31,3 +31,20 @@
     text-decoration: underline;
   }
 }
+
+// tablet
+@include viewport-down(tablet) {
+  .image {
+    height: 220px;
+  }
+}
+
+// mobile
+@include viewport-down(mobile) {
+  .image {
+    width: 100%;
+  }
+  .information_wrapper {
+    display: block;
+  }
+}
