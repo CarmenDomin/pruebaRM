@@ -1,8 +1,7 @@
-$blue: rgb(115, 185, 205);
-$green: rgb(210, 227, 111);
+@import '../../../assets/scss/colors';
 
 :host {
-  border-top: 1px solid rgb(227, 227, 227);
+  border-top: 1px solid $grey;
   display: block;
   padding: 20px 60px;
 }

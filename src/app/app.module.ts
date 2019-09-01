@@ -4,9 +4,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
-import {LayoutComponent} from './components/layout/layout.component';
-import {CharactersComponent} from './pages/characters/characters.component';
-import {CharacterDetailComponent} from './pages/character-detail/character-detail.component';
+import {CardComponent, LayoutComponent} from './components';
+import {CharactersComponent, CharacterDetailComponent} from './pages';
 
 const Routes = [
   {
@@ -26,6 +25,7 @@ const Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    CardComponent,
     CharactersComponent,
     CharacterDetailComponent,
     LayoutComponent

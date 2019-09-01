@@ -1,5 +1,7 @@
+@import '../assets/scss/colors';
+
 body {
-  background-color: rgb(251, 251, 251);
+  background-color: $grey-light;
   margin: 0;
 }
 
