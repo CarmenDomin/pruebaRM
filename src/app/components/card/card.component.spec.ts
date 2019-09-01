@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {async, TestBed, ComponentFixture} from '@angular/core/testing';
 
-import {CardComponent} from './card.component';
+import {CardComponent, SpeciesComponent} from '..';
 
 const mockCharacter = {
   "id": 1,
@@ -41,6 +41,7 @@ describe('CardComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         CardComponent,
+        SpeciesComponent,
         TestCardComponent
       ]
     }).compileComponents();

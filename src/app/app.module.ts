@@ -4,7 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
-import {CardComponent, LayoutComponent} from './components';
+import {CardComponent, LayoutComponent, SpeciesComponent} from './components';
 import {CharactersComponent, CharacterDetailComponent} from './pages';
 
 const Routes = [
@@ -28,7 +28,8 @@ const Routes = [
     CardComponent,
     CharactersComponent,
     CharacterDetailComponent,
-    LayoutComponent
+    LayoutComponent,
+    SpeciesComponent
   ],
   imports: [
     BrowserModule,

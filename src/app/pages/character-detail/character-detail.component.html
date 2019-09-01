@@ -5,7 +5,7 @@
   <div class="information_wrapper">
     <img class="image" src="{{details.image}}" alt="">
     <div class="information">
-      <div class="specie" [class.specie--human]="details.species === 'Human'">{{details.species}}</div>
+      <species [species]="details.species"></species>
       <h2>{{details.name}}</h2>
       <ul>
         <li><span class="bold">Gender:</span> {{details.gender}}</li>

@@ -3,8 +3,8 @@ import {async, TestBed, ComponentFixture} from '@angular/core/testing';
 import {ActivatedRoute, RouterModule} from '@angular/router';
 import {of} from 'rxjs';
 
+import {AppModule} from '../,./../../app.module';
 import {CharacterDetailComponent} from './character-detail.component';
-import {LayoutComponent} from '../../components/layout/layout.component';
 import {CharactersService} from '../../services/characters.service';
 
 const mockCharacter = {
@@ -37,11 +37,8 @@ describe('CharactersDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        CharacterDetailComponent,
-        LayoutComponent
-      ],
       imports: [
+        AppModule,
         RouterModule.forRoot([]),
       ],
       providers: [

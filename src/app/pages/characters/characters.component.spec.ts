@@ -3,8 +3,8 @@ import {async, TestBed, ComponentFixture} from '@angular/core/testing';
 import {RouterModule} from '@angular/router';
 import {of} from 'rxjs';
 
+import {AppModule} from '../,./../../app.module';
 import {CharactersComponent} from './characters.component';
-import {CardComponent, LayoutComponent} from '../../components';
 import {CharactersService} from '../../services/characters.service';
 
 describe('CharactersComponent', () => {
@@ -13,12 +13,8 @@ describe('CharactersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        CardComponent,
-        CharactersComponent,
-        LayoutComponent
-      ],
       imports: [
+        AppModule,
         RouterModule.forRoot([]),
       ],
       providers: [
