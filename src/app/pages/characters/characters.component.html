@@ -4,9 +4,7 @@
     <input #inputString (keyup)="filter(inputString.value)"/>
     <span *ngIf="showNotFound">Not Found</span>
   </div>
-  <ul>
-    <li *ngFor="let character of characters">
-      <a [routerLink]="['/character-detail', character.id]">{{character.name}}</a>
-    </li>
-  </ul>
+  <div class="card_wrapper">
+    <card class="card" *ngFor="let character of characters" [details]="character"></card>
+  </div>
 </layout>
