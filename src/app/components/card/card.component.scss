@@ -20,8 +20,14 @@
     width: 100%;
   }
 
-  &:hover:after {
-    opacity: .2;
+  &:hover {
+    &:after {
+      opacity: .2;
+    }
+
+    .information {
+      bottom: 0;
+    }
   }
 }
 
@@ -31,8 +37,10 @@
 }
 
 .information {
+  @include transition('bottom');
+
   background-color: white;
-  bottom: 0;
+  bottom: -41px;
   box-sizing: border-box;
   padding: 15px;
   position: absolute;
@@ -41,5 +49,5 @@
 }
 
 .information_name {
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
