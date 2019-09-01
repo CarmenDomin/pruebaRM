@@ -1,7 +1,5 @@
-<a [routerLink]="['/character-detail', details.id]">
-  <img class="image" src="{{details.image}}" alt="">
-  <div class="information">
-    <div>{{details.name}}</div>
-    <div class="specie" [class.specie--human]="details.species === 'Human'">{{details.species}}</div>
-  </div>
-</a>
+<img class="image" src="{{details.image}}" alt="">
+<div class="information">
+  <div>{{details.name}}</div>
+  <div class="specie" [class.specie--human]="details.species === 'Human'">{{details.species}}</div>
+</div>
