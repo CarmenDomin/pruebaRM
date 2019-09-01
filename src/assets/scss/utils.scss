@@ -1,0 +1,13 @@
+@mixin transition($properties) {
+  @if type-of($properties) == string {
+    $properties: ($properties);
+  }
+
+  $result: '';
+
+  @for $idx from 1 through length($properties) {
+    $result: "#{$result}#{if($idx == 1, '', ', ')}#{nth($properties, $idx)} .5s ease-out";
+  }
+
+  transition: unquote($result);
+}

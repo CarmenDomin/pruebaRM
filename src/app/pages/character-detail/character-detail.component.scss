@@ -1,16 +1,37 @@
 @import '../../../assets/scss/colors';
+@import '../../../assets/scss/utils';
 
 .bold {
   font-weight: bold;
 }
 
+.image {
+  object-fit: cover;
+}
+
 .information_wrapper {
   display: flex;
+  height: 240px;
   padding-top: 20px;
 }
 
 .information {
   margin-left: 30px;
+}
+
+.link {
+  @include transition('color');
+
+  color: $grey-dark;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: black;
+  }
 }
 
 .specie {

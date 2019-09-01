@@ -1,10 +1,10 @@
 <layout>
   <div header class="header">
     <span>Characters</span>
-    <input #inputString (keyup)="filter(inputString.value)"/>
-    <span *ngIf="showNotFound">Not Found</span>
+    <input class="search" #inputString placeholder="Search..." (keyup)="filter(inputString.value)"/>
   </div>
   <div class="card_wrapper">
     <card class="card" *ngFor="let character of characters" [routerLink]="['/character-detail', character.id]" [details]="character"></card>
   </div>
+  <span *ngIf="showNotFound">Character Not Found</span>
 </layout>

@@ -1,7 +1,12 @@
 .card {
+  cursor: pointer;
   flex: 1 1 0%;
   margin: 20px;
   min-width: calc(100%/5);
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .card_wrapper {
@@ -14,4 +19,8 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+}
+
+.search:focus {
+  outline: none;
 }
