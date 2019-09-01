@@ -51,3 +51,10 @@
 .information_name {
   padding-bottom: 15px;
 }
+
+// tablet & mobile
+@include viewport-down(tablet) {
+  .information {
+    bottom: 0;
+  }
+}
