@@ -7,6 +7,7 @@
 
 .image {
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .information_wrapper {
@@ -20,9 +21,6 @@
 }
 
 .link {
-  @include transition('color');
-
-  color: $grey-dark;
   cursor: pointer;
 
   &:focus {
@@ -30,7 +28,7 @@
   }
 
   &:hover {
-    color: black;
+    text-decoration: underline;
   }
 }
 
