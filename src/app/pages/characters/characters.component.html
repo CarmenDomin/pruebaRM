@@ -5,6 +5,9 @@
   </div>
   <div class="card_wrapper" [class.card_wrapper--searching]="searching">
     <card class="card" *ngFor="let character of characters" [routerLink]="['/character-detail', character.id]" [details]="character"></card>
+    <div class="card hidden"></div>
+    <div class="card hidden"></div>
+    <div class="card hidden"></div>
   </div>
   <span *ngIf="showNotFound">Character Not Found</span>
 </layout>

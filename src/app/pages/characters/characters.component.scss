@@ -1,13 +1,20 @@
 @import '../../../assets/scss/utils';
 
+$margin: 20px;
+
 .card {
   cursor: pointer;
   flex: 1 1 0%;
-  margin: 20px;
+  margin: $margin;
   min-width: calc(100%/5);
 
   &:focus {
     outline: none;
+  }
+
+  &.hidden {
+    height: 0;
+    margin: -$margin $margin;
   }
 }
 
@@ -16,7 +23,7 @@
 
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -20px;
+  margin: 0 -$margin;
   opacity: 1;
 
   &.card_wrapper--searching {
@@ -32,4 +39,28 @@
 
 .search:focus {
   outline: none;
+}
+
+
+// small-desktop
+@include viewport-down(small-desktop) {
+  .card {
+    min-width: calc(100%/4);
+  }
+}
+
+// tablet
+@include viewport-down(tablet) {
+  .card {
+    // IE and Edge do not support calc(100%/3) because they round to two decimals
+    // https://stackoverflow.com/questions/30480442/width-calc100-3-not-working-properly-in-any-ie
+    min-width: 33.33%;
+  }
+}
+
+// mobile
+@include viewport-down(mobile) {
+  .card {
+    min-width: calc(100%/2);
+  }
 }

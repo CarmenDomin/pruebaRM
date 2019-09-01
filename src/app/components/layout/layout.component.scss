@@ -1,9 +1,10 @@
 @import '../../../assets/scss/colors';
+@import '../../../assets/scss/utils';
 
 :host {
   border-top: 1px solid $grey;
   display: block;
-  padding: 20px 60px;
+  padding: 0 300px;
 }
 
 .header {
@@ -23,5 +24,19 @@
   }
   100% {
     border-color:  $blue;
+  }
+}
+
+// small-desktop
+@include viewport-down(small-desktop) {
+  :host {
+    padding: 0 200px;
+  }
+}
+
+// tablet & mobile
+@include viewport-down(tablet) {
+  :host {
+    padding: 0 40px;
   }
 }

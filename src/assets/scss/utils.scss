@@ -1,3 +1,41 @@
+// VIEWPORTS
+// media queries breakpoints
+$max-width-mobile: 480px;
+$max-width-tablet: 991px;
+$max-width-small-desktop: 1399px;
+
+$viewports: (mobile, tablet, small-desktop);
+
+// get breakpoints for the viewport indicated (mobile, tablet or small-desktop)
+@function get-breakpoint($viewport) {
+  @if index($viewports, $viewport) == null {
+    @error 'Unknown viewport: #{$viewport}';
+  }
+
+  @if $viewport == mobile {
+    @return $max-width-mobile;
+  }
+  @else if $viewport == tablet {
+    @return $max-width-tablet;
+  }
+  @else if $viewport == small-desktop {
+    @return $max-width-small-desktop;
+  }
+  @else {
+    @return none;
+  }
+}
+
+// apply styles for the viewport indicated and down
+@mixin viewport-down($viewport) {
+  $breakpoint: get-breakpoint($viewport);
+
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+// VIEWPORTS
 @mixin transition($properties) {
   @if type-of($properties) == string {
     $properties: ($properties);
