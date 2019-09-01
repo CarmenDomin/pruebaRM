@@ -2,7 +2,7 @@ import {async, TestBed, ComponentFixture} from '@angular/core/testing';
 
 import {CardComponent} from './card.component';
 
-describe('LayoutComponent', () => {
+describe('CardComponent', () => {
   let fixture: ComponentFixture<CardComponent>;
 
   beforeEach(async(() => {
@@ -18,5 +18,8 @@ describe('LayoutComponent', () => {
 
   it('should create the app', async(() => {
     expect(fixture.debugElement.componentInstance).toBeTruthy();
+  }));
+  it('should get input data', async(() => {
+    expect(fixture.debugElement.componentInstance.details).not.toBeUndefined;
   }));
 });

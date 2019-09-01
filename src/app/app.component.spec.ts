@@ -1,10 +1,12 @@
 import {APP_BASE_HREF} from '@angular/common';
-import {TestBed, async} from '@angular/core/testing';
+import {async, TestBed, ComponentFixture} from '@angular/core/testing';
 import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -17,10 +19,11 @@ describe('AppComponent', () => {
         {provide: APP_BASE_HREF, useValue : '/' }
       ]
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
   }));
   it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(fixture.debugElement.componentInstance).toBeTruthy();
   }));
 });

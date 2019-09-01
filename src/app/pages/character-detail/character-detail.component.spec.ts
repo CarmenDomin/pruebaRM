@@ -61,6 +61,6 @@ describe('CharactersDetailComponent', () => {
   }));
   it('should get data from characters service', async(() => {
     expect(mockCharactersService.getCharacterDetail).toHaveBeenCalledWith(1);
-    expect(fixture.debugElement.componentInstance.characterDetail).toEqual(mockCharacter);
+    expect(fixture.debugElement.componentInstance.details).toEqual(mockCharacter);
   }));
 });

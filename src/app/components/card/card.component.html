@@ -1,5 +1,5 @@
-<img class="image" src="{{details.image}}" alt="">
+<img class="image" src="{{details?.image}}" alt="">
 <div class="information">
-  <div>{{details.name}}</div>
-  <div class="specie" [class.specie--human]="details.species === 'Human'">{{details.species}}</div>
+  <div>{{details?.name}}</div>
+  <div class="specie" [class.specie--human]="details?.species === 'Human'">{{details?.species}}</div>
 </div>
