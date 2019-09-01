@@ -12,6 +12,7 @@ import {Character} from '../../models/character.model';
 export class CharacterDetailComponent {
   private id: number;
   public details: Character;
+  public showPopUp = false;
 
   constructor(
     public charactersService: CharactersService,
@@ -22,5 +23,13 @@ export class CharacterDetailComponent {
 
   public ngOnInit(): void {
     this.charactersService.getCharacterDetail(this.id).subscribe((data) => this.details = data);
+  }
+
+  public onClose(e?: Event): void {
+    e ? e.stopPropagation() : this.showPopUp = false;
+  }
+  
+  public onEnlarge(): void {
+    this.showPopUp = true;
   }
 }

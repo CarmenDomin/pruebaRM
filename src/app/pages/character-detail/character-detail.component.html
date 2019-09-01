@@ -4,6 +4,7 @@
   </div>
   <div class="information_wrapper">
     <img class="image" src="{{details.image}}" alt="">
+    <img class="icon_enlarge" (click)="onEnlarge()" src="../../../assets/img/enlarge.png" alt="">
     <div class="information">
       <species [species]="details.species"></species>
       <h2>{{details.name}}</h2>
@@ -15,3 +16,7 @@
     </div>
   </div>
 </layout>
+
+<div class="popup" [class.popup--visible]="showPopUp" (click)="onClose()">
+  <img class="popup_image" (click)="onClose($event)" src="{{details?.image}}" alt="">
+</div>

@@ -43,7 +43,6 @@ $margin: 20px;
   outline: none;
 }
 
-
 // small-desktop
 @include viewport-down(small-desktop) {
   .card {
