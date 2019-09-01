@@ -1,11 +1,45 @@
+// global styles
 @import '../assets/scss/colors';
+
+$footer-height: 50px;
 
 body {
   background-color: $grey-light;
   margin: 0;
+
+  position: relative;
+  min-height: 100vh;
+}
+
+footer {
+  background-color: rgba($grey, .3);
+  bottom: 0;
+  height: $footer-height;
+  line-height: $footer-height;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 
 header {
   background-color: white;
   padding: 5px 20px;
+}
+
+main {
+ padding-bottom: $footer-height;
+}
+
+a {
+  color: $blue;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

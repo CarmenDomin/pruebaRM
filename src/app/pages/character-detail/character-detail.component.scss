@@ -10,26 +10,14 @@
   border-radius: 5px;
 }
 
-.information_wrapper {
-  display: flex;
-  height: 240px;
-  padding-top: 20px;
-}
-
 .information {
   margin-left: 30px;
 }
 
-.link {
-  cursor: pointer;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:hover {
-    text-decoration: underline;
-  }
+.information_wrapper {
+  display: flex;
+  height: 240px;
+  padding-top: 20px;
 }
 
 // tablet
@@ -44,7 +32,13 @@
   .image {
     width: 100%;
   }
+
+  .information {
+    margin-left: 0;
+  }
+
   .information_wrapper {
     display: block;
+    height: unset;
   }
 }

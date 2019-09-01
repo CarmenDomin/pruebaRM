@@ -23,7 +23,9 @@ $margin: 20px;
 
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -$margin;
+  margin-left: -$margin;
+  margin-right: -$margin;
+  margin-bottom: $margin;
   opacity: 1;
 
   &.card_wrapper--searching {

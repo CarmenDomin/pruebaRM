@@ -1,6 +1,6 @@
 <layout *ngIf="details">
   <div header>
-    <span class="link" [routerLink]="['/characters']">Characters</span> > {{details.name}}
+    <a class="link" [routerLink]="['/characters']">Characters</a> > {{details.name}}
   </div>
   <div class="information_wrapper">
     <img class="image" src="{{details.image}}" alt="">
