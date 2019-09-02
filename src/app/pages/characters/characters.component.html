@@ -1,7 +1,10 @@
 <layout>
   <div header class="header">
-    <span>Characters</span>
-    <input class="search" #inputString placeholder="Search..." (keyup)="filter(inputString.value)"/>
+    <span class="header_title">Characters</span>
+    <div class="header_search">
+      <i class="fas fa-search header_search--icon"></i>
+      <input class="header_search--input" #inputString placeholder="Search..." (keyup)="filter(inputString.value)"/>
+    </div>
   </div>
   <div class="sub_header" [ngSwitch]="favorites">
     <button *ngSwitchCase="true" (click)="goToAllCharacters()">Return to all characters</button>
@@ -19,7 +22,13 @@
     <div class="card hidden" *ngFor="let item of [].constructor(3)"></div>
   </div>
   <div class="error_message">
-    <div *ngIf="showNotFound">Character not found</div>
-    <div *ngIf="showNotFavorites">You have no favorites, select some by clicking this star!<favorite class="favorite"></favorite></div>
+    <div *ngIf="showNotFound">
+      Sorry, the character does not exist, try again!
+      <i class="far fa-sad-tear error_message--sad"></i>
+    </div>
+    <div *ngIf="showNotFavorites">
+      You have no favorites, select some by clicking this star!
+      <favorite class="error_message--favorite"></favorite>
+    </div>
   </div>
 </layout>

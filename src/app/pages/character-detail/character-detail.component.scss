@@ -1,8 +1,8 @@
 @import '../../../assets/scss/colors';
 @import '../../../assets/scss/utils';
 
-.bold {
-  font-weight: bold;
+.details_list {
+  padding: 5px;
 }
 
 .expand {
@@ -28,6 +28,10 @@
   right: 0;
 }
 
+.header {
+  font-weight: bold;
+}
+
 .image {
   object-fit: cover;
   border-radius: 5px;
@@ -42,6 +46,10 @@
   height: 240px;
   padding-top: 20px;
   position: relative;
+}
+
+.light {
+  font-weight: 300;
 }
 
 .popup {

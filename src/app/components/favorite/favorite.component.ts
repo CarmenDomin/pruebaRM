@@ -10,12 +10,16 @@ export class FavoriteComponent implements OnInit {
   @Input() id?: number;
 
   public ngOnInit() {
-    this.isFavorite = this.id && localStorage.getItem(this.id.toString()) === 'true';
+    this.isFavorite = this.id ? localStorage.getItem(this.id.toString()) === 'true' : false;
   }
 
   public doFavorite(e: Event): void {
     e.stopPropagation();
     this.isFavorite = !this.isFavorite;
+
+    if (!this.id) {
+      return;
+    }
 
     if (typeof(Storage) !== 'undefined') {
       this.isFavorite ? localStorage.setItem(this.id.toString(), this.isFavorite.toString()) : localStorage.removeItem(this.id.toString());

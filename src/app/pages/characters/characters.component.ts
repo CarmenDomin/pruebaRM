@@ -55,6 +55,8 @@ export class CharactersComponent implements OnInit {
 
   public goToAllCharacters(): void {
     this.favorites = false;
+    this.showNotFavorites = false;
+
     this.goToPage();
   }
 
