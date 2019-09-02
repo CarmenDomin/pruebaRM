@@ -1,0 +1,21 @@
+@import '../../../assets/scss/colors';
+@import '../../../assets/scss/utils';
+
+:host {
+  display: inline-block;
+}
+
+.star {
+  @include transition('color');
+
+  color: rgba($grey, .5);
+  font-size: 30px;
+
+  &:hover {
+    color: $grey;
+  }
+
+  &.favorite {
+    color: $blue;
+  }
+}

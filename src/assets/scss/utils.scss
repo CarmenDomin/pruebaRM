@@ -9,7 +9,7 @@ $viewports: (mobile, tablet, small-desktop);
 // get breakpoints for the viewport indicated (mobile, tablet or small-desktop)
 @function get-breakpoint($viewport) {
   @if index($viewports, $viewport) == null {
-    @error 'Unknown viewport: #{$viewport}';
+    @error "Unknown viewport: #{$viewport}";
   }
 
   @if $viewport == mobile {
@@ -35,17 +35,7 @@ $viewports: (mobile, tablet, small-desktop);
   }
 }
 
-// VIEWPORTS
-@mixin transition($properties) {
-  @if type-of($properties) == string {
-    $properties: ($properties);
-  }
-
-  $result: '';
-
-  @for $idx from 1 through length($properties) {
-    $result: "#{$result}#{if($idx == 1, '', ', ')}#{nth($properties, $idx)} .3s ease-out";
-  }
-
-  transition: unquote($result);
+// TRANSITION
+@mixin transition($propertie) {
+  transition: unquote("#{$propertie} .3s ease-out");
 }

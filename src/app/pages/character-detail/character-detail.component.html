@@ -4,8 +4,9 @@
   </div>
   <div class="information_wrapper">
     <img class="image" src="{{details.image}}" alt="">
-    <i class="fas fa-expand" (click)="onEnlarge()"></i>
+    <i class="fas fa-expand expand" (click)="onEnlarge()"></i>
     <div class="information">
+      <favorite class="favorite" [id]="details.id"></favorite>
       <species [species]="details.species"></species>
       <h2>{{details.name}}</h2>
       <ul>
