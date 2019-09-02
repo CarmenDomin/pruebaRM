@@ -2,17 +2,17 @@
   <div header class="header">
     <a [routerLink]="['/characters']">Characters</a> > {{details.name}}
   </div>
-  <div class="information_wrapper">
-    <img class="image" src="{{details.image}}" alt="">
-    <i class="fas fa-expand expand" (click)="onEnlarge()"></i>
-    <div class="information">
-      <favorite class="favorite" [id]="details.id"></favorite>
+  <div class="information">
+    <img class="information_image" src="{{details.image}}" alt="">
+    <i class="fas fa-expand information_icon--expand" (click)="onEnlarge()"></i>
+    <div class="information_details">
+      <favorite class="information_details--favorite" [id]="details.id"></favorite>
       <species [species]="details.species"></species>
       <h2>{{details.name}}</h2>
-      <ul>
-        <li class="details_list">Gender: <span class="light">{{details.gender}}</span></li>
-        <li class="details_list">Status: <span class="light">{{details.status}}</span></li>
-        <li class="details_list">Origin: <span class="light">{{details.name}}</span></li>
+      <ul class="information_details--list">
+        <li>Gender: <span class="light">{{details.gender}}</span></li>
+        <li>Status: <span class="light">{{details.status}}</span></li>
+        <li>Origin: <span class="light">{{details.name}}</span></li>
       </ul>
     </div>
   </div>

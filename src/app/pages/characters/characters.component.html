@@ -10,7 +10,7 @@
     <button *ngSwitchCase="true" (click)="goToAllCharacters()">Return to all characters</button>
     <ng-container *ngSwitchDefault>
       <button (click)="goToFavorites()">My favorites</button>
-      <div class="pagination">
+      <div class="sub_header--pagination">
         <button (click)="goToPage(-1)" [attr.disabled]="isButtonDisabled(-1)"><</button>
         <button [class.current]="i === 2" *ngFor="let item of [].constructor(5); let i = index" (click)="goToPage(i - 2)" [attr.disabled]="isButtonDisabled(i - 2)">{{page + i - 2}}</button>
         <button (click)="goToPage(1)" [attr.disabled]="isButtonDisabled(1)">></button>
@@ -19,7 +19,7 @@
   </div>
   <div class="card_wrapper" [class.card_wrapper--searching]="searching">
     <card class="card" *ngFor="let character of characters" [routerLink]="['/character-detail', character.id]" [details]="character"></card>
-    <div class="card hidden" *ngFor="let item of [].constructor(3)"></div>
+    <div class="card card--hidden" *ngFor="let item of [].constructor(3)"></div>
   </div>
   <div class="error_message">
     <div *ngIf="showNotFound">

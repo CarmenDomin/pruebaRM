@@ -31,13 +31,6 @@
   }
 }
 
-.favorite {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  z-index: 1000;
-}
-
 .image {
   margin-top: -35px;
   width: 100%;
@@ -52,6 +45,13 @@
   padding: 15px;
   position: absolute;
   width: 100%;
+  z-index: 1000;
+}
+
+.information__favorite {
+  position: absolute;
+  right: 10px;
+  top: 10px;
   z-index: 1000;
 }
 

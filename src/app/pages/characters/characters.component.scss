@@ -13,7 +13,7 @@ $margin: 20px;
     outline: none;
   }
 
-  &.hidden {
+  &.card--hidden {
     height: 0;
     margin: -$margin $margin;
   }
@@ -85,7 +85,12 @@ $margin: 20px;
   font-weight: bold;
 }
 
-.pagination {
+.sub_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sub_header--pagination {
   text-align: right;
   
   button {
@@ -113,11 +118,6 @@ $margin: 20px;
   }
 }
 
-.sub_header {
-  display: flex;
-  justify-content: space-between;
-}
-
 // small-desktop
 @include viewport-down(small-desktop) {
   .card {
@@ -140,7 +140,11 @@ $margin: 20px;
     min-width: calc(100%/2);
   }
 
-  .pagination {
+  .sub_header {
+    flex-direction: column;
+  }
+
+  .sub_header--pagination {
     display: flex;
     margin-top: 20px;
     text-align: center;
@@ -148,9 +152,5 @@ $margin: 20px;
     button {
       flex: 1;
     }
-  }
-
-  .sub_header {
-    flex-direction: column;
   }
 }
