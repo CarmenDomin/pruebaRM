@@ -3,14 +3,23 @@
     <span>Characters</span>
     <input class="search" #inputString placeholder="Search..." (keyup)="filter(inputString.value)"/>
   </div>
-  <div class="pagination">
-    <button (click)="goToPage(-1)" [attr.disabled]="isButtonDisabled(-1)"><</button>
-    <button *ngFor="let item of [].constructor(5); let i = index" [class.current]="i === 2" (click)="goToPage(i - 2)" [attr.disabled]="isButtonDisabled(i - 2)">{{page + i - 2}}</button>
-    <button (click)="goToPage(1)" [attr.disabled]="isButtonDisabled(1)">></button>
+  <div class="sub_header" [ngSwitch]="favorites">
+    <button *ngSwitchCase="true" (click)="goToAllCharacters()">Return to all characters</button>
+    <ng-container *ngSwitchDefault>
+      <button (click)="goToFavorites()">My favorites</button>
+      <div class="pagination">
+        <button (click)="goToPage(-1)" [attr.disabled]="isButtonDisabled(-1)"><</button>
+        <button [class.current]="i === 2" *ngFor="let item of [].constructor(5); let i = index" (click)="goToPage(i - 2)" [attr.disabled]="isButtonDisabled(i - 2)">{{page + i - 2}}</button>
+        <button (click)="goToPage(1)" [attr.disabled]="isButtonDisabled(1)">></button>
+      </div>
+    </ng-container>
   </div>
   <div class="card_wrapper" [class.card_wrapper--searching]="searching">
     <card class="card" *ngFor="let character of characters" [routerLink]="['/character-detail', character.id]" [details]="character"></card>
-    <div *ngFor="let item of [].constructor(3)" class="card hidden"></div>
+    <div class="card hidden" *ngFor="let item of [].constructor(3)"></div>
   </div>
-  <span *ngIf="showNotFound">Character Not Found</span>
+  <div class="error_message">
+    <div *ngIf="showNotFound">Character not found</div>
+    <div *ngIf="showNotFavorites">You have no favorites, select some by clicking this star!<favorite class="favorite"></favorite></div>
+  </div>
 </layout>

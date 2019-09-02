@@ -34,6 +34,14 @@ $margin: 20px;
   }
 }
 
+.error_message {
+  text-align: center;
+
+  .favorite {
+    margin-left: 20px;
+  }
+}
+
 .header {
   display: flex;
   align-items: baseline;
@@ -44,14 +52,8 @@ $margin: 20px;
   text-align: right;
   
   button {
-    background-color: white;
-    border: solid $yellow;
     border-width: 2px 1px;
-    color: $yellow;
-    cursor: pointer;
-    display: inline-block;
-    outline: none;
-    padding: 2px 10px;
+    height: 100%;
     width: 37px;
   
     &:first-child {
@@ -60,26 +62,6 @@ $margin: 20px;
   
     &:last-child {
       border-right-width: 2px;
-    }
-  
-    &:hover {
-      border-color: $blue;
-      color: $blue;
-    }
-  
-    &:active {
-      background-color: rgba($blue, .1);
-    }
-  
-    &:disabled {
-      border-color: $grey;
-      color: $grey;
-      cursor: default;
-  
-      &:hover {
-        border-color: $grey;
-        color: $grey;
-      }
     }
 
     &.current {
@@ -96,6 +78,11 @@ $margin: 20px;
 
 .search:focus {
   outline: none;
+}
+
+.sub_header {
+  display: flex;
+  justify-content: space-between;
 }
 
 // small-desktop

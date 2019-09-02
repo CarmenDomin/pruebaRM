@@ -9,6 +9,7 @@
   @include transition('color');
 
   color: rgba($grey, .5);
+  cursor: pointer;
   font-size: 30px;
 
   &:hover {

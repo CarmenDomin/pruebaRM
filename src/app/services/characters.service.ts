@@ -48,4 +48,8 @@ export class CharactersService {
       map((data: CharactersOutput) => data.results),
       catchError(_ => of([])));
   }
+
+  public getMultipleCharacters(ids: number[]): Observable<Character[]> {
+    return this.http.get(endpoint + 'character/' + ids.join(',')) as Observable<Character[]>;
+  }
 }
