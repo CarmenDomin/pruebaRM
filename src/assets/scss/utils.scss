@@ -36,6 +36,12 @@ $viewports: (mobile, tablet, small-desktop);
 }
 
 // TRANSITION
-@mixin transition($propertie) {
-  transition: unquote("#{$propertie} .3s ease-out");
+@mixin transition($properties...) {
+  $result: '';
+
+  @for $idx from 1 through length($properties) {
+    $result: "#{$result}#{if($idx == 1, '', ', ')}#{nth($properties, $idx)} .3s ease-out";
+  }
+
+  transition: unquote($result);
 }

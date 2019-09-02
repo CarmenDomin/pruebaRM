@@ -45,7 +45,7 @@
 }
 
 .popup {
-  transition: visibility 0s 2s, opacity .3s ease-out;
+  @include transition('visibility', 'opacity');
 
   background-color: rgba(black, .5);
   height: 100vh;
