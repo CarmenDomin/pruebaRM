@@ -50,6 +50,6 @@ export class CharactersService {
   }
 
   public getMultipleCharacters(ids: number[]): Observable<Character[]> {
-    return this.http.get(endpoint + 'character/' + ids.join(',')) as Observable<Character[]>;
+    return this.http.get(endpoint + 'character/0,' + ids.join(',')) as Observable<Character[]>;
   }
 }
