@@ -1,3 +1,4 @@
+@import '../../../assets/scss/colors';
 @import '../../../assets/scss/utils';
 
 $margin: 20px;
@@ -39,6 +40,60 @@ $margin: 20px;
   justify-content: space-between;
 }
 
+.pagination {
+  text-align: right;
+  
+  button {
+    background-color: white;
+    border: solid $yellow;
+    border-width: 2px 1px;
+    color: $yellow;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    padding: 2px 10px;
+    width: 37px;
+  
+    &:first-child {
+      border-left-width: 2px;
+    }
+  
+    &:last-child {
+      border-right-width: 2px;
+    }
+  
+    &:hover {
+      border-color: $blue;
+      color: $blue;
+    }
+  
+    &:active {
+      background-color: rgba($blue, .1);
+    }
+  
+    &:disabled {
+      border-color: $grey;
+      color: $grey;
+      cursor: default;
+  
+      &:hover {
+        border-color: $grey;
+        color: $grey;
+      }
+    }
+
+    &.current {
+      border-color: $blue;
+      color: $blue;
+      cursor: default;
+
+      &:active {
+        background-color: white;
+      }
+    }
+  }
+}
+
 .search:focus {
   outline: none;
 }
@@ -63,5 +118,9 @@ $margin: 20px;
 @include viewport-down(mobile) {
   .card {
     min-width: calc(100%/2);
+  }
+
+  .pagination {
+    text-align: center;
   }
 }

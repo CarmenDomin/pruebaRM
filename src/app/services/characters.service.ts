@@ -20,12 +20,23 @@ interface CharactersOutput {
   providedIn: 'root'
 })
 export class CharactersService {
-
+  private _page = 1;
   constructor(private http: HttpClient) {
   }
 
-  public getAllCharacters(): Observable<Character[]> {
-    return this.http.get(endpoint + 'character').pipe(map((data: CharactersOutput) => data.results));
+  public get page(): number {
+    return this._page;
+  };
+
+  public set page(page: number) {
+    this._page = page;
+  };
+
+  public getAllCharacters(page?: number): Observable<Character[]> {
+    if (page) {
+      this.page = page;
+    }
+    return this.http.get(endpoint + 'character?page=' + this.page).pipe(map((data: CharactersOutput) => data.results));
   }
 
   public getCharacterDetail(id: number): Observable<Character> {

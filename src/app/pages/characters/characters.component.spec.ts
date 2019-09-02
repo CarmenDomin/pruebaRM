@@ -51,4 +51,15 @@ describe('CharactersComponent', () => {
     expect(fixture.debugElement.componentInstance.characters).toEqual([]);
     expect(fixture.debugElement.componentInstance.showNotFound).toBeTruthy;
   }));
+  it('should go to the specified page', async(() => {
+    fixture.debugElement.componentInstance.page = 3;
+    fixture.debugElement.componentInstance.goToPage(2);
+
+    expect(fixture.debugElement.componentInstance.page).toBe(5);
+    expect(mockCharactersService.getAllCharacters).toHaveBeenCalledWith(5);
+  }));
+  it('should disable button', async(() => {
+    fixture.debugElement.componentInstance.page = 3;
+    expect(fixture.debugElement.componentInstance.isButtonDisabled(-3)).not.toBeTruthy;
+  }));
 });

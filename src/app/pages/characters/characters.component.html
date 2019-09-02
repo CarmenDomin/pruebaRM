@@ -3,6 +3,11 @@
     <span>Characters</span>
     <input class="search" #inputString placeholder="Search..." (keyup)="filter(inputString.value)"/>
   </div>
+  <div class="pagination">
+    <button (click)="goToPage(-1)" [attr.disabled]="isButtonDisabled(-1)"><</button>
+    <button *ngFor="let item of [-2, -1, 0, 1, 2]" [class.current]="item === 0" (click)="goToPage(item)" [attr.disabled]="isButtonDisabled(item)">{{page + item}}</button>
+    <button (click)="goToPage(1)" [attr.disabled]="isButtonDisabled(1)">></button>
+  </div>
   <div class="card_wrapper" [class.card_wrapper--searching]="searching">
     <card class="card" *ngFor="let character of characters" [routerLink]="['/character-detail', character.id]" [details]="character"></card>
     <div class="card hidden"></div>

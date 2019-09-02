@@ -20,6 +20,11 @@ describe('CharactersService', () => {
       expect(data.length).toBe(20);
     });
   }));
+  it('should get the 20 characters of the selected page', inject([CharactersService], (service: CharactersService) => {
+    service.getAllCharacters(3).subscribe((data) => {
+      expect(data.length).toBe(20);
+    });
+  }));
   it('should get the first character', inject([CharactersService], (service: CharactersService) => {
     service.getCharacterDetail(1).subscribe((data) => {
       expect(data.id).toBe(1);
