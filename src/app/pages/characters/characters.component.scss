@@ -108,6 +108,16 @@ $margin: 20px;
   }
 
   .pagination {
+    display: flex;
+    margin-top: 20px;
     text-align: center;
+
+    button {
+      flex: 1;
+    }
+  }
+
+  .sub_header {
+    flex-direction: column;
   }
 }
