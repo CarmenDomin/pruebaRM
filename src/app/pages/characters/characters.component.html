@@ -5,14 +5,12 @@
   </div>
   <div class="pagination">
     <button (click)="goToPage(-1)" [attr.disabled]="isButtonDisabled(-1)"><</button>
-    <button *ngFor="let item of [-2, -1, 0, 1, 2]" [class.current]="item === 0" (click)="goToPage(item)" [attr.disabled]="isButtonDisabled(item)">{{page + item}}</button>
+    <button *ngFor="let item of [].constructor(5); let i = index" [class.current]="i === 2" (click)="goToPage(i - 2)" [attr.disabled]="isButtonDisabled(i - 2)">{{page + i - 2}}</button>
     <button (click)="goToPage(1)" [attr.disabled]="isButtonDisabled(1)">></button>
   </div>
   <div class="card_wrapper" [class.card_wrapper--searching]="searching">
     <card class="card" *ngFor="let character of characters" [routerLink]="['/character-detail', character.id]" [details]="character"></card>
-    <div class="card hidden"></div>
-    <div class="card hidden"></div>
-    <div class="card hidden"></div>
+    <div *ngFor="let item of [].constructor(3)" class="card hidden"></div>
   </div>
   <span *ngIf="showNotFound">Character Not Found</span>
 </layout>
