@@ -62,7 +62,8 @@ header {
 }
 
 main {
- padding-bottom: $footer-height;
+  display: block;
+  padding-bottom: $footer-height;
 }
 
 a {
