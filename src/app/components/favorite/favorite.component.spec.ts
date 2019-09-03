@@ -4,7 +4,7 @@ import {async, TestBed, ComponentFixture} from '@angular/core/testing';
 import {FavoriteComponent, SpeciesComponent} from '..';
 
 @Component({
-  selector: `app-test-favorite`,
+  selector: `test-favorite`,
   template: `<favorite id="${1}"></favorite>`
 })
 class TestFavoriteComponent {

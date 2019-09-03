@@ -5,9 +5,7 @@ import {CharactersService} from '../../services/characters.service';
 import {Character} from '../../models/character.model';
 
 @Component({
-  /* tslint:disable:component-selector */
   selector: 'character-detail',
-  /* tslint:disable:component-selector */
   templateUrl: './character-detail.component.html',
   styleUrls: ['./character-detail.component.scss']
 })

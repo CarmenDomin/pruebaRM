@@ -28,7 +28,7 @@ const mockCharacter = {
 };
 
 @Component({
-  selector: `app-test-card`,
+  selector: `test-card`,
   template: `<card details="${mockCharacter}"></card>`
 })
 class TestCardComponent {

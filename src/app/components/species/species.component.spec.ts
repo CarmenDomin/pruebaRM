@@ -4,7 +4,7 @@ import {async, TestBed, ComponentFixture} from '@angular/core/testing';
 import {SpeciesComponent} from '..';
 
 @Component({
-  selector: `app-test-species`,
+  selector: `test-species`,
   template: `<species species='Human'></species>`
 })
 class TestSpeciesComponent {
