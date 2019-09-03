@@ -103,7 +103,7 @@
 @include viewport-down(mobile) {
   .information {
     display: block;
-    height: unset;
+    height: auto;
   }
 
   .information_details {
