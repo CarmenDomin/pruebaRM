@@ -1,15 +1,17 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {CharactersService} from '../../services/characters.service';
 import {Character} from '../../models/character.model';
 
 @Component({
+  /* tslint:disable:component-selector */
   selector: 'character-detail',
+  /* tslint:disable:component-selector */
   templateUrl: './character-detail.component.html',
   styleUrls: ['./character-detail.component.scss']
 })
-export class CharacterDetailComponent {
+export class CharacterDetailComponent implements OnInit {
   private id: number;
   public details: Character;
   public showPopUp = false;
@@ -28,7 +30,7 @@ export class CharacterDetailComponent {
   public onClose(e?: Event): void {
     e ? e.stopPropagation() : this.showPopUp = false;
   }
-  
+
   public onEnlarge(): void {
     this.showPopUp = true;
   }

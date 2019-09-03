@@ -4,7 +4,7 @@ import {async, TestBed, ComponentFixture} from '@angular/core/testing';
 import {FavoriteComponent, SpeciesComponent} from '..';
 
 @Component({
-  selector: `test-favorite`,
+  selector: `app-test-favorite`,
   template: `<favorite id="${1}"></favorite>`
 })
 class TestFavoriteComponent {
@@ -12,7 +12,7 @@ class TestFavoriteComponent {
 
 describe('FavoriteComponent', () => {
   let fixture: ComponentFixture<TestFavoriteComponent>;
-  let store = {};
+  const store = {};
   const mockLocalStorage = {
     getItem: (key: string): string => {
       return key in store ? store[key] : null;
@@ -48,6 +48,6 @@ describe('FavoriteComponent', () => {
     expect(fixture.debugElement.componentInstance).toBeTruthy();
   }));
   it('should return isFavorite from localStorage', async(() => {
-    expect(fixture.debugElement.componentInstance.isFavorite).toBeTruthy;
+    expect(fixture.debugElement.componentInstance.isFavorite).toBeTruthy();
   }));
 });

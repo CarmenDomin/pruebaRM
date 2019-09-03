@@ -1,7 +1,9 @@
 import {Component, HostBinding, Input} from '@angular/core';
 
 @Component({
+  /* tslint:disable:component-selector */
   selector: 'species',
+  /* tslint:enable:component-selector */
   templateUrl: './species.component.html',
   styleUrls: ['./species.component.scss']
 })
@@ -19,13 +21,17 @@ export class SpeciesComponent {
   }
 
   private getColor(): string {
-    var hash = 6; // random value
-    for (var i = 0; i < this.species.length; i++) {
+    let hash = 6; // random value
+    for (let i = 0; i < this.species.length; i++) {
+      /* tslint:disable:no-bitwise */
       hash = this.species.charCodeAt(i) + ((hash << 5) - hash);
+      /* tslint:enable:no-bitwise */
     }
-    var colour = '#';
-    for (var i = 0; i < 3; i++) {
+    let colour = '#';
+    for (let i = 0; i < 3; i++) {
+      /* tslint:disable:no-bitwise */
       colour += ('00' + ((hash >> (i * 8)) & 0xFF).toString(16)).substr(-2);
+      /* tslint:enable:no-bitwise */
     }
     return colour;
   }

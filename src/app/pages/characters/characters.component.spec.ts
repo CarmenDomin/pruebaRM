@@ -10,7 +10,7 @@ import {CharactersService} from '../../services/characters.service';
 describe('CharactersComponent', () => {
   let fixture: ComponentFixture<CharactersComponent>;
   const mockCharactersService = jasmine.createSpyObj(['getAllCharacters', 'getCharactersByName', 'getMultipleCharacters']);
-  let store = {};
+  const store = {};
   const mockLocalStorage = {
     getItem: (key: string): string => {
       return key in store ? store[key] : null;
@@ -49,7 +49,7 @@ describe('CharactersComponent', () => {
 
     expect(mockCharactersService.getCharactersByName).toHaveBeenCalledWith('rick');
     expect(fixture.debugElement.componentInstance.characters).toEqual([{id: 4}]);
-    expect(fixture.debugElement.componentInstance.showNotFound).not.toBeTruthy;
+    expect(fixture.debugElement.componentInstance.showNotFound).not.toBeTruthy();
   }));
   it('should show not found message', async(() => {
     mockCharactersService.getCharactersByName.and.returnValue(of([]));
@@ -57,7 +57,7 @@ describe('CharactersComponent', () => {
 
     expect(mockCharactersService.getCharactersByName).toHaveBeenCalledWith('ifkhygi');
     expect(fixture.debugElement.componentInstance.characters).toEqual([]);
-    expect(fixture.debugElement.componentInstance.showNotFound).toBeTruthy;
+    expect(fixture.debugElement.componentInstance.showNotFound).toBeTruthy();
   }));
   it('should go to the specified page', async(() => {
     fixture.debugElement.componentInstance.page = 3;
@@ -68,23 +68,23 @@ describe('CharactersComponent', () => {
   }));
   it('should disable button', async(() => {
     fixture.debugElement.componentInstance.page = 3;
-    expect(fixture.debugElement.componentInstance.isButtonDisabled(-3)).not.toBeTruthy;
+    expect(fixture.debugElement.componentInstance.isButtonDisabled(-3)).not.toBeTruthy();
   }));
   it('should go to all characters view', async(() => {
     spyOn(fixture.debugElement.componentInstance, 'goToPage');
     fixture.debugElement.componentInstance.favorites = true;
     fixture.debugElement.componentInstance.goToAllCharacters();
 
-    expect(fixture.debugElement.componentInstance.favorites).not.toBeTruthy;
-    expect(fixture.debugElement.componentInstance.showNotFavorites).not.toBeTruthy;
+    expect(fixture.debugElement.componentInstance.favorites).not.toBeTruthy();
+    expect(fixture.debugElement.componentInstance.showNotFavorites).not.toBeTruthy();
     expect(fixture.debugElement.componentInstance.goToPage).toHaveBeenCalled();
   }));
   it('should go to favorites view', async(() => {
     fixture.debugElement.componentInstance.favorites = false;
     fixture.debugElement.componentInstance.goToFavorites();
 
-    expect(fixture.debugElement.componentInstance.favorites).toBeTruthy;
-    expect(fixture.debugElement.componentInstance.showNotFavorites).toBeTruthy;
+    expect(fixture.debugElement.componentInstance.favorites).toBeTruthy();
+    expect(fixture.debugElement.componentInstance.showNotFavorites).toBeTruthy();
     expect(mockCharactersService.getMultipleCharacters).toHaveBeenCalled();
   }));
 });

@@ -12,7 +12,7 @@ interface CharactersOutput {
     count: number;
     next: string;
     prev: string;
-  }
+  };
   results: Character[];
 }
 
@@ -26,11 +26,11 @@ export class CharactersService {
 
   public get page(): number {
     return this._page;
-  };
+  }
 
   public set page(page: number) {
     this._page = page;
-  };
+  }
 
   public getAllCharacters(page?: number): Observable<Character[]> {
     if (page) {

@@ -1,7 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
+  /* tslint:disable:component-selector */
   selector: 'favorite',
+  /* tslint:enable:component-selector */
   templateUrl: './favorite.component.html',
   styleUrls: ['./favorite.component.scss']
 })

@@ -4,7 +4,9 @@ import {CharactersService} from '../../services/characters.service';
 import {Character} from '../../models/character.model';
 
 @Component({
+  /* tslint:disable:component-selector */
   selector: 'characters',
+  /* tslint:enable:component-selector */
   templateUrl: './characters.component.html',
   styleUrls: ['./characters.component.scss']
 })
@@ -42,7 +44,7 @@ export class CharactersComponent implements OnInit {
     }
     this.searching = true;
     this.page = stepsToMove ? this.page + stepsToMove : this.page;
-    
+
     this.charactersService.getAllCharacters(this.page).subscribe((data) => {
       this.characters = data;
       this.searching = false;
@@ -63,7 +65,7 @@ export class CharactersComponent implements OnInit {
   public goToFavorites(): void {
     this.favorites = true;
     this.searching = true;
-    const favorites = Object.keys({...localStorage}).map((key: string) => parseInt(key));
+    const favorites = Object.keys({...localStorage}).map((key: string) => parseInt(key, 10));
 
     this.showNotFavorites = favorites.length === 0;
     if (this.showNotFavorites) {
