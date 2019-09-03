@@ -1,8 +1,7 @@
 @import '../../../assets/scss/colors';
 
 :host {
-  display: block;
+  display: inline-block;
   border: 2px solid;
   padding: 2px 7px;
-  width: fit-content;
 }
