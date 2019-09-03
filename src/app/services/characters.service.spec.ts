@@ -38,8 +38,8 @@ describe('CharactersService', () => {
   it('should get multipe characters by ids', inject([CharactersService], (service: CharactersService) => {
     service.getMultipleCharacters([1, 2]).subscribe((data) => {
       expect(data.length).toBe(2);
-      expect(data[0].id).toBe('1');
-      expect(data[1].id).toBe('2');
+      expect(data[0].id).toBe(1);
+      expect(data[1].id).toBe(2);
     });
   }));
 });

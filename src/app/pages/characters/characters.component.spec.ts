@@ -10,6 +10,12 @@ import {CharactersService} from '../../services/characters.service';
 describe('CharactersComponent', () => {
   let fixture: ComponentFixture<CharactersComponent>;
   const mockCharactersService = jasmine.createSpyObj(['getAllCharacters', 'getCharactersByName', 'getMultipleCharacters']);
+  let store = {};
+  const mockLocalStorage = {
+    getItem: (key: string): string => {
+      return key in store ? store[key] : null;
+    },
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -26,7 +32,8 @@ describe('CharactersComponent', () => {
     fixture = TestBed.createComponent(CharactersComponent);
     mockCharactersService.getAllCharacters.and.returnValue(of([]));
     mockCharactersService.getCharactersByName.and.returnValue(of([{id: 4}]));
-    mockCharactersService.getMultipleCharacters.and.returnValue(of([{id: 4}]));
+    mockCharactersService.getMultipleCharacters.and.returnValue(of([]));
+    spyOn(localStorage, 'getItem').and.callFake(mockLocalStorage.getItem);
     fixture.detectChanges();
   }));
 
@@ -69,6 +76,7 @@ describe('CharactersComponent', () => {
     fixture.debugElement.componentInstance.goToAllCharacters();
 
     expect(fixture.debugElement.componentInstance.favorites).not.toBeTruthy;
+    expect(fixture.debugElement.componentInstance.showNotFavorites).not.toBeTruthy;
     expect(fixture.debugElement.componentInstance.goToPage).toHaveBeenCalled();
   }));
   it('should go to favorites view', async(() => {
@@ -76,6 +84,7 @@ describe('CharactersComponent', () => {
     fixture.debugElement.componentInstance.goToFavorites();
 
     expect(fixture.debugElement.componentInstance.favorites).toBeTruthy;
+    expect(fixture.debugElement.componentInstance.showNotFavorites).toBeTruthy;
     expect(mockCharactersService.getMultipleCharacters).toHaveBeenCalled();
   }));
 });
