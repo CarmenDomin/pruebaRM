@@ -29,9 +29,10 @@ const mockCharacter = {
 
 @Component({
   selector: `test-card`,
-  template: `<card details="${mockCharacter}"></card>`
+  template: `<card [details]=details></card>`
 })
 class TestCardComponent {
+  details = mockCharacter;
 }
 
 describe('CardComponent', () => {
@@ -55,6 +56,6 @@ describe('CardComponent', () => {
     expect(fixture.debugElement.componentInstance).toBeTruthy();
   }));
   it('should get input data', async(() => {
-    expect(fixture.debugElement.componentInstance.details).not.toBeUndefined();
+    expect(fixture.debugElement.componentInstance.details).toBe(mockCharacter);
   }));
 });

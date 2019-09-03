@@ -5,9 +5,10 @@ import {FavoriteComponent, SpeciesComponent} from '..';
 
 @Component({
   selector: `test-favorite`,
-  template: `<favorite id="${1}"></favorite>`
+  template: `<favorite [id]=id></favorite>`
 })
 class TestFavoriteComponent {
+  id = 1;
 }
 
 describe('FavoriteComponent', () => {
@@ -35,19 +36,16 @@ describe('FavoriteComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestFavoriteComponent);
-    fixture.detectChanges();
-
     spyOn(localStorage, 'getItem').and.callFake(mockLocalStorage.getItem);
     spyOn(localStorage, 'setItem').and.callFake(mockLocalStorage.setItem);
     spyOn(localStorage, 'removeItem').and.callFake(mockLocalStorage.removeItem);
-
-    localStorage.setItem('1', 'true');
+    fixture.detectChanges();
   }));
 
   it('should create the app', async(() => {
     expect(fixture.debugElement.componentInstance).toBeTruthy();
   }));
-  it('should return isFavorite from localStorage', async(() => {
-    expect(fixture.debugElement.componentInstance.isFavorite).toBeTruthy();
+  it('should get input data', async(() => {
+    expect(fixture.debugElement.componentInstance.id).toBe(1);
   }));
 });

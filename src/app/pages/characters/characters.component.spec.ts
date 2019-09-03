@@ -84,7 +84,7 @@ describe('CharactersComponent', () => {
     fixture.debugElement.componentInstance.goToFavorites();
 
     expect(fixture.debugElement.componentInstance.favorites).toBeTruthy();
-    expect(fixture.debugElement.componentInstance.showNotFavorites).toBeTruthy();
+    expect(fixture.debugElement.componentInstance.showNotFavorites).not.toBeTruthy();
     expect(mockCharactersService.getMultipleCharacters).toHaveBeenCalled();
   }));
 });

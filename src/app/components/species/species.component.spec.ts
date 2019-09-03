@@ -5,9 +5,10 @@ import {SpeciesComponent} from '..';
 
 @Component({
   selector: `test-species`,
-  template: `<species species='Human'></species>`
+  template: `<species [species]=species></species>`
 })
 class TestSpeciesComponent {
+  species = 'Human';
 }
 
 describe('SpeciesComponent', () => {
@@ -29,6 +30,6 @@ describe('SpeciesComponent', () => {
     expect(fixture.debugElement.componentInstance).toBeTruthy();
   }));
   it('should get input data', async(() => {
-    expect(fixture.debugElement.componentInstance.species).not.toBeUndefined();
+    expect(fixture.debugElement.componentInstance.species).toBe('Human');
   }));
 });
