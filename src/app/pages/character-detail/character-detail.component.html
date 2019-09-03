@@ -3,7 +3,7 @@
     <a [routerLink]="['/characters']">Characters</a> > {{details.name}}
   </div>
   <div class="information">
-    <img class="information_image" src="{{details.image}}" alt="">
+    <img class="information_image" src="{{details.image}}" alt="image-character">
     <i class="fas fa-expand information_icon--expand" (click)="onEnlarge()"></i>
     <div class="information_details">
       <favorite class="information_details--favorite" [id]="details.id"></favorite>
@@ -19,5 +19,5 @@
 </layout>
 
 <div class="popup" [class.popup--visible]="showPopUp" (click)="onClose()">
-  <img class="popup_image" (click)="onClose($event)" src="{{details?.image}}" alt="">
+  <img class="popup_image" (click)="onClose($event)" src="{{details?.image}}" alt="image-character-bigger">
 </div>
